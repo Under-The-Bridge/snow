@@ -1,0 +1,114 @@
+[gd_scene format=3 uid="uid://b7chchre18yv1"]
+
+[ext_resource type="PackedScene" uid="uid://dfkup0x6sbyqo" path="res://Mesh/box.glb" id="1_lc1oi"]
+[ext_resource type="Script" uid="uid://cqvjeqqc2lxht" path="res://Scripts/PlayerMovement.gd" id="2_8od7v"]
+[ext_resource type="Script" uid="uid://p531yvj0b8xb" path="res://Scripts/CameraScript.gd" id="3_qc4db"]
+[ext_resource type="PackedScene" uid="uid://dyt6iqit7f3o8" path="res://Mesh/terrain.glb" id="4_35xla"]
+[ext_resource type="Texture2D" uid="uid://bo6esg0e2r03r" path="res://Textures/snow.png" id="4_ys1qc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2ha21"]
+size = Vector3(2, 6, 2)
+
+[sub_resource type="Environment" id="Environment_qc4db"]
+background_mode = 1
+background_color = Color(0, 0, 0.03137255, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.10747976, 0.10747973, 0.10747973, 1)
+ambient_light_energy = 0.15
+ssr_enabled = true
+ssao_enabled = true
+ssil_enabled = true
+sdfgi_use_occlusion = true
+sdfgi_read_sky_light = false
+sdfgi_bounce_feedback = 0.21
+sdfgi_min_cell_size = 0.01
+glow_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.01
+volumetric_fog_temporal_reprojection_enabled = false
+volumetric_fog_temporal_reprojection_amount = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i3aeo"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_35xla"]
+material = SubResource("StandardMaterial3D_i3aeo")
+size = Vector3(1, 0.01, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bjupt"]
+albedo_texture = ExtResource("4_ys1qc")
+uv1_scale = Vector3(25, 25, 25)
+texture_filter = 0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_57qmd"]
+size = Vector3(307.29688, 0.01, 367.2932)
+
+[node name="Node3D" type="Node3D" unique_id=1293829860]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=71557342]
+transform = Transform3D(1, 0, 0, 0, -0.66403127, 0.7477049, 0, -0.7477049, -0.66403127, -1.3866186, 7.6558337, 20.170547)
+shadow_enabled = true
+
+[node name="Player" type="CharacterBody3D" parent="." unique_id=1896530909 node_paths=PackedStringArray("camera", "flashlight")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.8005323, 0)
+script = ExtResource("2_8od7v")
+speed = 10.0
+speed_run = 25.0
+camera = NodePath("Camera")
+flashlight = NodePath("Camera/SpotLight3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player" unique_id=1290338872]
+shape = SubResource("BoxShape3D_2ha21")
+
+[node name="box" parent="Player" unique_id=104819844 instance=ExtResource("1_lc1oi")]
+transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0)
+visible = false
+
+[node name="Camera" type="Camera3D" parent="Player" unique_id=1684576684]
+transform = Transform3D(-0.043897092, 0, -0.99903613, 0, 1, 0, 0.99903613, 0, -0.043897092, 0, 2.4909697, 0)
+fov = 90.0
+script = ExtResource("3_qc4db")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Player/Camera" unique_id=938047115]
+transform = Transform3D(0.99862945, 0, 0.052335955, 0, 1, 0, -0.052335955, 0, 0.99862945, 0.946, -0.775, 0.011)
+light_energy = 1.5
+light_volumetric_fog_energy = 0.75
+shadow_enabled = true
+spot_range = 100.0
+spot_angle = 40.0
+spot_angle_attenuation = 0.32987684
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1548796326]
+environment = SubResource("Environment_qc4db")
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="." unique_id=82736281]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 48.130894, 0)
+amount = 2000
+lifetime = 45.0
+randomness = 1.0
+mesh = SubResource("BoxMesh_35xla")
+emission_shape = 3
+emission_box_extents = Vector3(200, 1, 200)
+particle_flag_align_y = true
+direction = Vector3(0, -1, 0)
+spread = 15.0
+gravity = Vector3(0, -0.2, 0)
+angular_velocity_min = -90.0
+angular_velocity_max = 90.0
+tangential_accel_min = -0.1
+tangential_accel_max = 0.1
+angle_max = 360.0
+scale_amount_min = 0.1
+scale_amount_max = 0.5
+
+[node name="Terrain" type="StaticBody3D" parent="." unique_id=957616530]
+
+[node name="terrain" parent="Terrain" unique_id=1273504766 instance=ExtResource("4_35xla")]
+
+[node name="Plane" parent="Terrain/terrain" index="0" unique_id=227238516]
+material_override = SubResource("StandardMaterial3D_bjupt")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain" unique_id=1843448464]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.005, 0)
+shape = SubResource("BoxShape3D_57qmd")
+
+[editable path="Terrain/terrain"]
