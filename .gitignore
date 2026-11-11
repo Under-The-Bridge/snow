@@ -1,0 +1,12 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+# Blender backups
+*.blend[0-9]*
+
+# Local credentials
+.env
+.env.*
+!.env.example
+export_credentials.cfg
