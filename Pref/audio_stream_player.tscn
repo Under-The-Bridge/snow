@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b2gp3p1kipfrm"]
+
+[ext_resource type="AudioStream" uid="uid://dc532rfipt131" path="res://Sounds/Music/verity.mp3" id="1_yth1m"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" unique_id=1656613652]
+stream = ExtResource("1_yth1m")
