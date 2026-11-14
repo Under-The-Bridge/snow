@@ -5,12 +5,14 @@ extends CharacterBody3D
 @export var camera: Node3D
 @export var flashlight: SpotLight3D
 
+@export var inventory  = []
+
 var headFloat = 0.0
 var flashlightOn = false
 
 func _physics_process(delta: float) -> void:
 	
-	camera.position = Vector3(0,2.25 + (sin(headFloat) / 10),0)
+	camera.position = Vector3(0,2.25 + (sin(headFloat) / 6),0)
 	
 	var input = Input.get_vector("a", "d", "w", "s")
 	var direction = camera.global_basis * Vector3(input.x, 0, input.y)
@@ -42,3 +44,10 @@ func _physics_process(delta: float) -> void:
 func flashOn():
 	flashlightOn = !flashlightOn
 	flashlight.visible = flashlightOn
+
+func add_object_to_inventory(name: String):
+	for i in inventory:
+		if name == i[0]:
+			i[1] += 1
+			return
+	inventory.append([name,1])

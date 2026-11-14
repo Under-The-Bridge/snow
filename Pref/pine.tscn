@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://4r5ae1ymr1nf"]
+
+[ext_resource type="PackedScene" uid="uid://u2ohjn23fnc0" path="res://Mesh/snow_pine.glb" id="1_vaiia"]
+
+[node name="pine" type="Node3D" unique_id=397740613]
+
+[node name="snow_pine" parent="." unique_id=1535342489 instance=ExtResource("1_vaiia")]
+transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 0, 0, 0)

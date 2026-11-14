@@ -1,0 +1,138 @@
+[gd_scene format=3 uid="uid://de7hwgukjlp6v"]
+
+[ext_resource type="Script" uid="uid://cqvjeqqc2lxht" path="res://Scripts/PlayerMovement.gd" id="1_0gkwk"]
+[ext_resource type="PackedScene" uid="uid://dfkup0x6sbyqo" path="res://Mesh/box.glb" id="2_qnglk"]
+[ext_resource type="Script" uid="uid://p531yvj0b8xb" path="res://Scripts/CameraScript.gd" id="3_vqdnj"]
+[ext_resource type="Script" uid="uid://tf5fqipcmwy4" path="res://Scripts/PlayerUI.gd" id="4_mx6ow"]
+[ext_resource type="FontFile" uid="uid://cvusbrwftjiik" path="res://Fonts/Tiny5/Tiny5-VariableFont_BLED,JITT,ROND,wdth,wght.ttf" id="4_qnglk"]
+[ext_resource type="FontFile" uid="uid://df1p24apfmq1k" path="res://Fonts/Tiny5/static/Tiny5-Bold.ttf" id="4_vqdnj"]
+[ext_resource type="Script" uid="uid://v0ua0k6ihbc" path="res://Scripts/InventoryUI.gd" id="7_8k4q5"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_35xla"]
+radius = 1.0
+height = 6.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mx6ow"]
+shading_mode = 0
+albedo_color = Color(0.32544088, 0.3254409, 0.32544088, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_35xla"]
+material = SubResource("StandardMaterial3D_mx6ow")
+size = Vector3(1, 0.01, 1)
+
+[node name="Player" type="CharacterBody3D" unique_id=1728821855 node_paths=PackedStringArray("camera", "flashlight")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 0, 0, 0)
+script = ExtResource("1_0gkwk")
+speed = 10.0
+speed_run = 17.5
+camera = NodePath("Camera")
+flashlight = NodePath("Camera/SpotLight3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1991020999]
+shape = SubResource("CapsuleShape3D_35xla")
+
+[node name="box" parent="." unique_id=34877130 instance=ExtResource("2_qnglk")]
+transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0)
+visible = false
+
+[node name="Camera" type="Camera3D" parent="." unique_id=442427127 node_paths=PackedStringArray("objNameLabel", "interactLabel", "player")]
+transform = Transform3D(-0.043897033, 0, -0.9990361, 0, 1, 0, 0.9990361, 0, -0.043897033, 0, 2.689, 0)
+fov = 90.0
+script = ExtResource("3_vqdnj")
+objNameLabel = NodePath("../CanvasLayer/Control/HBoxContainer/ObjName")
+interactLabel = NodePath("../CanvasLayer/Control/HBoxContainer/ShowInteractableButton")
+player = NodePath("..")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Camera" unique_id=1870084209]
+transform = Transform3D(0.99862945, 0, 0.052335955, 0, 1, 0, -0.052335955, 0, 0.99862945, 0.946, -0.775, 0.011)
+visible = false
+light_energy = 1.5
+light_volumetric_fog_energy = 0.75
+shadow_enabled = true
+spot_range = 100.0
+spot_angle = 40.0
+spot_angle_attenuation = 0.32987684
+
+[node name="RayCast3D" type="RayCast3D" parent="Camera" unique_id=1385973190]
+target_position = Vector3(0, 0, -5)
+collide_with_areas = true
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="." unique_id=1433930006]
+transform = Transform3D(0.8338859, 0, 0.55193704, 0, 1, 0, -0.55193704, 0, 0.8338859, 0, 44.33, 0)
+cast_shadow = 0
+amount = 2500
+lifetime = 15.0
+preprocess = 10.0
+randomness = 1.0
+mesh = SubResource("BoxMesh_35xla")
+emission_shape = 3
+emission_box_extents = Vector3(50, 1, 50)
+particle_flag_align_y = true
+direction = Vector3(0, -1, 0)
+spread = 15.0
+gravity = Vector3(0, -1, 0)
+angular_velocity_min = -90.0
+angular_velocity_max = 90.0
+radial_accel_min = -0.5
+radial_accel_max = 1.5
+tangential_accel_min = -0.1
+tangential_accel_max = 0.1
+angle_max = 360.0
+scale_amount_min = 0.1
+scale_amount_max = 0.5
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1218650930 node_paths=PackedStringArray("inventory")]
+script = ExtResource("4_mx6ow")
+inventory = NodePath("Control/inventory")
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=2050653037]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control" unique_id=1806340718]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.0
+offset_top = -20.0
+offset_right = 58.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 32
+
+[node name="ShowInteractableButton" type="Label" parent="CanvasLayer/Control/HBoxContainer" unique_id=689714930]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_vqdnj")
+theme_override_font_sizes/font_size = 32
+text = "E"
+
+[node name="ObjName" type="Label" parent="CanvasLayer/Control/HBoxContainer" unique_id=1207663827]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_qnglk")
+theme_override_font_sizes/font_size = 24
+text = " Тест тест "
+
+[node name="inventory" type="VBoxContainer" parent="CanvasLayer/Control" unique_id=1137959090]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -111.0
+grow_horizontal = 0
+grow_vertical = 2
+script = ExtResource("7_8k4q5")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/inventory" unique_id=805850266]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_qnglk")
+theme_override_font_sizes/font_size = 24
+text = "Инвентарь"

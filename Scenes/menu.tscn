@@ -17,9 +17,6 @@ background_energy_multiplier = 3.0
 ambient_light_source = 2
 ambient_light_color = Color(0.10747976, 0.10747973, 0.10747973, 1)
 ambient_light_energy = 0.2
-ssr_enabled = true
-ssao_enabled = true
-ssil_enabled = true
 sdfgi_use_occlusion = true
 sdfgi_read_sky_light = false
 sdfgi_bounce_feedback = 0.21
@@ -41,8 +38,8 @@ texture_filter = 0
 size = Vector3(307.29688, 0.01, 367.2932)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i3aeo"]
-emission = Color(1, 1, 1, 1)
-emission_energy_multiplier = 0.1
+shading_mode = 0
+albedo_color = Color(0.41087762, 0.41087765, 0.4108776, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_35xla"]
 material = SubResource("StandardMaterial3D_i3aeo")
@@ -85,7 +82,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 131.90912, 0, 0)
 
 [node name="terrain" parent="Terrain" unique_id=1273504766 instance=ExtResource("4_rfqti")]
 
-[node name="Plane" parent="Terrain/terrain" index="0" unique_id=227238516]
+[node name="Plane" parent="Terrain/terrain" index="0" unique_id=377498568]
 material_override = SubResource("StandardMaterial3D_bjupt")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain" unique_id=1843448464]
@@ -95,7 +92,7 @@ shape = SubResource("BoxShape3D_57qmd")
 [node name="CPUParticles3D" type="CPUParticles3D" parent="Terrain" unique_id=82736281]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -127.724106, 48.130894, 88.7836)
 cast_shadow = 0
-amount = 20000
+amount = 10000
 lifetime = 15.0
 preprocess = 10.0
 randomness = 1.0
@@ -240,7 +237,7 @@ theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_7qvly"
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_6swd7")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_q3rjx")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_wbdvm")
-text = "...НАЧАТЬ..."
+text = "> НАЧАТЬ"
 alignment = 0
 
 [node name="Settings" type="Button" parent="CanvasLayer/UI/MarginContainer/Buttons" unique_id=2132996938]
@@ -260,7 +257,7 @@ theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_7qvly"
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_6swd7")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_q3rjx")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_wbdvm")
-text = "...НАСТРОЙКИ..."
+text = "> НАСТРОЙКИ"
 alignment = 0
 
 [node name="Quit" type="Button" parent="CanvasLayer/UI/MarginContainer/Buttons" unique_id=875900471]
@@ -280,7 +277,7 @@ theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_7qvly"
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_6swd7")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_q3rjx")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_wbdvm")
-text = "...ВЫХОД..."
+text = "> ВЫХОД"
 alignment = 0
 
 [node name="Settings" type="MarginContainer" parent="CanvasLayer/UI/MarginContainer" unique_id=691715347]

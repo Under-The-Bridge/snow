@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://ye0ankqwq8i0"]
+
+[ext_resource type="PackedScene" uid="uid://dfkup0x6sbyqo" path="res://Mesh/box.glb" id="1_6m5q3"]
+[ext_resource type="Script" uid="uid://chpmkl2i0ceis" path="res://Scripts/PickableObj.gd" id="1_xhmfi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6m5q3"]
+size = Vector3(2, 2, 2)
+
+[node name="pickable_test_box" type="Node3D" unique_id=2128527594]
+script = ExtResource("1_xhmfi")
+objName = "Тестовая коробка"
+isInteractable = true
+
+[node name="box" parent="." unique_id=34877130 instance=ExtResource("1_6m5q3")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="Area3D" type="Area3D" parent="." unique_id=494267735]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=833018567]
+shape = SubResource("BoxShape3D_6m5q3")

@@ -1,7 +1,7 @@
 extends Node
 
 func _on_play_pressed() -> void:
-	SceneManager.loadScene('game')
+	SceneManager.loadScene('loading')
 
 
 func _on_settings_pressed() -> void:
