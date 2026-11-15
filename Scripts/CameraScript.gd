@@ -24,15 +24,32 @@ func _input(event: InputEvent) -> void:
 		rotation.x = clamp(rotation.x, deg_to_rad(-89), deg_to_rad(89))
 
 func _process(_delta: float) -> void:
-	if ray.is_colliding():
-		var object = ray.get_collider()
-		objNameLabel.text = object.get_parent().objName
-		if object.get_parent().isInteractable:
-			interactLabel.show()
-	else:
+	interactLabel.hide()
+	objNameLabel.text = ""
+
+	if not ray.is_colliding():
+		return
+
+	var collider = ray.get_collider()
+	if not is_instance_valid(collider):
+		return
+
+	var object = collider.get_parent()
+	if not is_instance_valid(object):
+		return
+
+	if not ("objName" in object) or not ("isInteractable" in object):
+		return
+
+	objNameLabel.text = str(object.objName)
+
+	if not object.isInteractable:
+		return
+
+	interactLabel.show()
+
+	if Input.is_action_just_pressed("e"):
+		player.add_object_to_inventory(object)
+		object.pickup()
 		interactLabel.hide()
 		objNameLabel.text = ""
-	if Input.is_action_just_pressed("e"):
-		if ray.is_colliding():
-			var object = ray.get_collider()
-			player.add_object_to_inventory(object.get_parent().name)

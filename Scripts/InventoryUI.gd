@@ -14,7 +14,7 @@ func slide(open: bool) -> void:
 
 	var target = start_position
 	if open:
-		target += Vector2(200, 0)
+		target += Vector2(256, 0)
 
 	tween = create_tween()
 	tween.set_trans(Tween.TRANS_CUBIC)

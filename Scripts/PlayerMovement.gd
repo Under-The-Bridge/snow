@@ -6,6 +6,7 @@ extends CharacterBody3D
 @export var flashlight: SpotLight3D
 
 @export var inventory  = []
+@export var ui: CanvasLayer
 
 var headFloat = 0.0
 var flashlightOn = false
@@ -45,9 +46,13 @@ func flashOn():
 	flashlightOn = !flashlightOn
 	flashlight.visible = flashlightOn
 
-func add_object_to_inventory(name: String):
+func add_object_to_inventory(obj):
+	var item_name = obj.objName
+	
 	for i in inventory:
-		if name == i[0]:
+		if item_name == i[0]:
 			i[1] += 1
+			ui.update_inventory()
 			return
-	inventory.append([name,1])
+	inventory.append([item_name,1])
+	ui.update_inventory()

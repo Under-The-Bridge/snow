@@ -4,9 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://dfkup0x6sbyqo" path="res://Mesh/box.glb" id="2_qnglk"]
 [ext_resource type="Script" uid="uid://p531yvj0b8xb" path="res://Scripts/CameraScript.gd" id="3_vqdnj"]
 [ext_resource type="Script" uid="uid://tf5fqipcmwy4" path="res://Scripts/PlayerUI.gd" id="4_mx6ow"]
-[ext_resource type="FontFile" uid="uid://cvusbrwftjiik" path="res://Fonts/Tiny5/Tiny5-VariableFont_BLED,JITT,ROND,wdth,wght.ttf" id="4_qnglk"]
-[ext_resource type="FontFile" uid="uid://df1p24apfmq1k" path="res://Fonts/Tiny5/static/Tiny5-Bold.ttf" id="4_vqdnj"]
 [ext_resource type="Script" uid="uid://v0ua0k6ihbc" path="res://Scripts/InventoryUI.gd" id="7_8k4q5"]
+[ext_resource type="FontFile" uid="uid://cn2tavd1oqan6" path="res://Fonts/Underdog/Underdog-Regular.ttf" id="8_yadxk"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_35xla"]
 radius = 1.0
@@ -20,13 +19,25 @@ albedo_color = Color(0.32544088, 0.3254409, 0.32544088, 1)
 material = SubResource("StandardMaterial3D_mx6ow")
 size = Vector3(1, 0.01, 1)
 
-[node name="Player" type="CharacterBody3D" unique_id=1728821855 node_paths=PackedStringArray("camera", "flashlight")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rku1e"]
+content_margin_left = 9.0
+content_margin_right = 9.0
+bg_color = Color(1, 0, 0, 0)
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="Player" type="CharacterBody3D" unique_id=1728821855 node_paths=PackedStringArray("camera", "flashlight", "ui")]
 transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 0, 0, 0)
 script = ExtResource("1_0gkwk")
 speed = 10.0
 speed_run = 17.5
 camera = NodePath("Camera")
 flashlight = NodePath("Camera/SpotLight3D")
+ui = NodePath("CanvasLayer")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1991020999]
 shape = SubResource("CapsuleShape3D_35xla")
@@ -81,9 +92,12 @@ angle_max = 360.0
 scale_amount_min = 0.1
 scale_amount_max = 0.5
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1218650930 node_paths=PackedStringArray("inventory")]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1218650930 node_paths=PackedStringArray("inventory", "player", "item_label", "inventory_items")]
 script = ExtResource("4_mx6ow")
 inventory = NodePath("Control/inventory")
+player = NodePath("..")
+item_label = NodePath("Control/inventory/VBoxContainer/item")
+inventory_items = NodePath("Control/inventory/VBoxContainer")
 
 [node name="Control" type="Control" parent="CanvasLayer" unique_id=2050653037]
 layout_mode = 3
@@ -110,14 +124,15 @@ theme_override_constants/separation = 32
 
 [node name="ShowInteractableButton" type="Label" parent="CanvasLayer/Control/HBoxContainer" unique_id=689714930]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("4_vqdnj")
+theme_override_fonts/font = ExtResource("8_yadxk")
 theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_rku1e")
 text = "E"
 
 [node name="ObjName" type="Label" parent="CanvasLayer/Control/HBoxContainer" unique_id=1207663827]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("4_qnglk")
-theme_override_font_sizes/font_size = 24
+theme_override_fonts/font = ExtResource("8_yadxk")
+theme_override_font_sizes/font_size = 20
 text = " Тест тест "
 
 [node name="inventory" type="VBoxContainer" parent="CanvasLayer/Control" unique_id=1137959090]
@@ -126,13 +141,25 @@ anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -111.0
+offset_left = -256.0
+offset_right = -101.0
 grow_horizontal = 0
 grow_vertical = 2
+theme_override_constants/separation = 32
 script = ExtResource("7_8k4q5")
 
 [node name="Label" type="Label" parent="CanvasLayer/Control/inventory" unique_id=805850266]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("4_qnglk")
-theme_override_font_sizes/font_size = 24
+theme_override_fonts/font = ExtResource("8_yadxk")
+theme_override_font_sizes/font_size = 32
 text = "Инвентарь"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/inventory" unique_id=524320448]
+layout_mode = 2
+
+[node name="item" type="Label" parent="CanvasLayer/Control/inventory/VBoxContainer" unique_id=1614940287]
+visible = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("8_yadxk")
+theme_override_font_sizes/font_size = 24
+text = "weqew"

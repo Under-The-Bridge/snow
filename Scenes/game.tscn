@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://622e088bqvbs" path="res://Scripts/GameManager.gd" id="1_ldgsr"]
 [ext_resource type="PackedScene" uid="uid://dyt6iqit7f3o8" path="res://Mesh/terrain.glb" id="4_35xla"]
-[ext_resource type="Texture2D" uid="uid://bo6esg0e2r03r" path="res://Textures/snow.png" id="4_ys1qc"]
 [ext_resource type="PackedScene" uid="uid://chobpkgwu5p07" path="res://Pref/lep.tscn" id="6_i3aeo"]
 [ext_resource type="PackedScene" uid="uid://cwg8hwr2aaxj7" path="res://Pref/road_zabor.tscn" id="7_5wyu1"]
 [ext_resource type="PackedScene" uid="uid://c8fc1ls6e33af" path="res://Pref/road.tscn" id="8_0c07c"]
@@ -35,14 +34,8 @@ volumetric_fog_density = 0.01
 volumetric_fog_temporal_reprojection_enabled = false
 volumetric_fog_temporal_reprojection_amount = 0.5
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bjupt"]
-cull_mode = 2
-albedo_texture = ExtResource("4_ys1qc")
-uv1_scale = Vector3(50, 50, 50)
-texture_filter = 0
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_57qmd"]
-size = Vector3(307.29688, 0.01, 367.2932)
+size = Vector3(4000, 0.01, 4000)
 
 [sub_resource type="Animation" id="Animation_ldgsr"]
 length = 60.0
@@ -71,14 +64,11 @@ environment = SubResource("Environment_qc4db")
 [node name="Terrain" type="StaticBody3D" parent="." unique_id=957616530]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 131.90912, 0, 0)
 
-[node name="terrain" parent="Terrain" unique_id=1273504766 instance=ExtResource("4_35xla")]
-
-[node name="Plane" parent="Terrain/terrain" index="0" unique_id=377498568]
-material_override = SubResource("StandardMaterial3D_bjupt")
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain" unique_id=1843448464]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.005, 0)
 shape = SubResource("BoxShape3D_57qmd")
+
+[node name="terrain" parent="Terrain" unique_id=2133241219 instance=ExtResource("4_35xla")]
 
 [node name="enviroments" type="Node3D" parent="." unique_id=975334098]
 transform = Transform3D(4.000001, 0, -2.3841858e-07, 0, 4, 0, 2.3841858e-07, 0, 4.000001, 6.155083, 3.8005323, -97.81393)
@@ -572,7 +562,8 @@ libraries/ = SubResource("AnimationLibrary_ldgsr")
 [node name="pickable_test_box" parent="." unique_id=2128527594 instance=ExtResource("14_1phco")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.297224, 2.000001, -99.8162)
 
+[node name="pickable_test_box2" parent="." unique_id=625040551 instance=ExtResource("14_1phco")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.297224, 2.000001, -91.47263)
+
 [node name="Player" parent="." unique_id=1728821855 instance=ExtResource("12_rku1e")]
 transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 11.090339, 3.0695362, -109.58137)
-
-[editable path="Terrain/terrain"]
