@@ -7,6 +7,7 @@ extends CharacterBody3D
 
 @export var inventory  = []
 @export var ui: CanvasLayer
+@export var flash_enable = false
 
 var headFloat = 0.0
 var flashlightOn = false
@@ -34,7 +35,7 @@ func _physics_process(delta: float) -> void:
 		headFloat = 0
 	
 	
-	if Input.is_action_just_pressed("f"):
+	if Input.is_action_just_pressed("f") and flash_enable:
 		flashOn()
 	
 	if not is_on_floor():
@@ -47,6 +48,11 @@ func flashOn():
 	flashlight.visible = flashlightOn
 
 func add_object_to_inventory(obj):
+	
+	if obj is UniquePickableItems:
+		obj.uniqueInteract()
+		return
+	
 	var item_name = obj.objName
 	
 	for i in inventory:

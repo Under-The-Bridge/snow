@@ -30,7 +30,7 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[node name="Player" type="CharacterBody3D" unique_id=1728821855 node_paths=PackedStringArray("camera", "flashlight", "ui")]
+[node name="Player" type="CharacterBody3D" unique_id=1728821855 node_paths=PackedStringArray("camera", "flashlight", "ui") groups=["Player"]]
 transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 0, 0, 0)
 script = ExtResource("1_0gkwk")
 speed = 10.0
@@ -57,6 +57,7 @@ player = NodePath("..")
 [node name="SpotLight3D" type="SpotLight3D" parent="Camera" unique_id=1870084209]
 transform = Transform3D(0.99862945, 0, 0.052335955, 0, 1, 0, -0.052335955, 0, 0.99862945, 0.946, -0.775, 0.011)
 visible = false
+light_color = Color(0.8235294, 1, 1, 1)
 light_energy = 1.5
 light_volumetric_fog_energy = 0.75
 shadow_enabled = true
@@ -71,7 +72,7 @@ collide_with_areas = true
 [node name="CPUParticles3D" type="CPUParticles3D" parent="." unique_id=1433930006]
 transform = Transform3D(0.8338859, 0, 0.55193704, 0, 1, 0, -0.55193704, 0, 0.8338859, 0, 44.33, 0)
 cast_shadow = 0
-amount = 2500
+amount = 2000
 lifetime = 15.0
 preprocess = 10.0
 randomness = 1.0

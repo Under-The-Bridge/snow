@@ -82,7 +82,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 131.90912, 0, 0)
 
 [node name="terrain" parent="Terrain" unique_id=1273504766 instance=ExtResource("4_rfqti")]
 
-[node name="Plane" parent="Terrain/terrain" index="0" unique_id=482809985]
+[node name="Plane" parent="Terrain/terrain" index="0" unique_id=1686925669]
 material_override = SubResource("StandardMaterial3D_bjupt")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain" unique_id=1843448464]
