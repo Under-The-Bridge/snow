@@ -11,10 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://b8q6hhtgqx3ca" path="res://Pref/house.tscn" id="12_rfjv2"]
 [ext_resource type="PackedScene" uid="uid://de7hwgukjlp6v" path="res://Pref/player.tscn" id="12_rku1e"]
 [ext_resource type="PackedScene" uid="uid://e1fxsbo1y0ho" path="res://Pref/sugrob_2.tscn" id="13_nb51f"]
-[ext_resource type="PackedScene" uid="uid://b36y0wv6243jv" path="res://Pref/zabor.tscn" id="13_rfjv2"]
 [ext_resource type="PackedScene" uid="uid://ye0ankqwq8i0" path="res://Pref/pickable_test_box.tscn" id="14_1phco"]
 [ext_resource type="PackedScene" uid="uid://bthv8th7lprhb" path="res://Mesh/vaz.glb" id="14_nb51f"]
 [ext_resource type="PackedScene" uid="uid://c8g0odbbquxk8" path="res://Pref/flashlight.tscn" id="15_nb51f"]
+[ext_resource type="PackedScene" uid="uid://kfimr8gv7sag" path="res://Pref/dep.tscn" id="15_nnt18"]
 
 [sub_resource type="Environment" id="Environment_qc4db"]
 background_mode = 1
@@ -1104,12 +1104,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -593.6304, 0, -248.96028)
 [node name="House9" parent="." unique_id=2083417285 instance=ExtResource("12_rfjv2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -591.26917, 0, -510.5572)
 
-[node name="zabor" parent="." unique_id=266607444 instance=ExtResource("13_rfjv2")]
-transform = Transform3D(0.99687856, 0, -0.07895051, 0, 1, 0, 0.07895051, 0, 0.99687856, 33.810886, 3.8146973e-06, -187.97832)
-
-[node name="zabor2" parent="." unique_id=1382753114 instance=ExtResource("13_rfjv2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.810886, 3.8146973e-06, -169.97832)
-
 [node name="car" type="Node3D" parent="." unique_id=1070615975]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3495865, -0.32219028, -26.548458)
 
@@ -1137,4 +1131,10 @@ process_material = SubResource("ParticleProcessMaterial_1phco")
 draw_pass_1 = SubResource("QuadMesh_nnt18")
 
 [node name="flashlight" parent="." unique_id=2023873909 instance=ExtResource("15_nb51f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.008276, 4.5485625, -23.258764)
+transform = Transform3D(1, 0, 0, 0, 0.9908647, 0.13485979, 0, -0.13485979, 0.9908647, 6.008276, 4.2547894, -23.258764)
+
+[node name="House10" parent="." unique_id=527553594 instance=ExtResource("12_rfjv2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.336388, 1.902668, -100.542816)
+
+[node name="Dep" parent="." unique_id=1761454404 instance=ExtResource("15_nnt18")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9774551, 0, -31.50217)

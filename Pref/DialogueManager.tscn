@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://dhxejons0ruo2"]
+
+[ext_resource type="Script" uid="uid://lev5nnbrqd3s" path="res://Scripts/DialogueSystem.gd" id="1_xgk6q"]
+[ext_resource type="FontFile" uid="uid://cn2tavd1oqan6" path="res://Fonts/Underdog/Underdog-Regular.ttf" id="2_bbvef"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1056473148 node_paths=PackedStringArray("message_window", "notification_window", "text_label", "notification_text_label") groups=["DialogueManager"]]
+script = ExtResource("1_xgk6q")
+message_window = NodePath("MessageWindow")
+notification_window = NodePath("NotificationWindow")
+text_label = NodePath("MessageWindow/Panel/MarginContainer/Label")
+notification_text_label = NodePath("NotificationWindow/MessageBox")
+
+[node name="MessageWindow" type="Control" parent="." unique_id=1180751495]
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 128.0
+offset_right = -128.0
+offset_bottom = 96.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Panel" type="Panel" parent="MessageWindow" unique_id=496941624]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MessageWindow/Panel" unique_id=1324830188]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="MessageWindow/Panel/MarginContainer" unique_id=415128205]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("2_bbvef")
+theme_override_font_sizes/font_size = 24
+
+[node name="NotificationWindow" type="Control" parent="." unique_id=1542166075]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -256.0
+offset_top = -72.0
+offset_bottom = -24.0
+grow_vertical = 0
+
+[node name="MessageBox" type="Label" parent="NotificationWindow" unique_id=634222649]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.83300006
+anchor_right = 1.0
+anchor_bottom = 0.83300006
+offset_top = 55.984
+offset_bottom = 40.016
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_bbvef")
+theme_override_font_sizes/font_size = 24
+text = "sfghjgfd"
