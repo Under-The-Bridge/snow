@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://kfimr8gv7sag"]
+
+[ext_resource type="PackedScene" uid="uid://dfkup0x6sbyqo" path="res://Mesh/box.glb" id="1_7u7ob"]
+[ext_resource type="Script" uid="uid://cvt61didxtdbw" path="res://Scripts/DepTest.gd" id="1_dvssg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dvssg"]
+size = Vector3(4, 4, 4)
+
+[node name="Dep" type="Node3D" unique_id=1761454404]
+script = ExtResource("1_dvssg")
+objName = "..."
+objLink = "dep"
+isInteractable = true
+
+[node name="box" parent="." unique_id=34877130 instance=ExtResource("1_7u7ob")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 2, 0)
+
+[node name="Area3D" type="Area3D" parent="." unique_id=825594291]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=618197707]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_dvssg")

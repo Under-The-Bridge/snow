@@ -4,16 +4,23 @@ extends CharacterBody3D
 @export var speed_run: float = 20
 @export var camera: Node3D
 @export var flashlight: SpotLight3D
-
-@export var inventory  = []
+@export var jump_velocity: float = 5.0
+@export var collision: CollisionShape3D
 @export var ui: CanvasLayer
+@export var flash_enable = false
+@export var flashlightModel: Node3D
 
 var headFloat = 0.0
 var flashlightOn = false
+var tween = create_tween()
+var collisionHeigh = 0
+
+func _ready() -> void:
+	collisionHeigh = collision.shape.height
 
 func _physics_process(delta: float) -> void:
 	
-	camera.position = Vector3(0,2.25 + (sin(headFloat) / 6),0)
+	camera.position = Vector3(0,2.25 + (sin(headFloat) / 5),0)
 	
 	var input = Input.get_vector("a", "d", "w", "s")
 	var direction = camera.global_basis * Vector3(input.x, 0, input.y)
@@ -34,12 +41,15 @@ func _physics_process(delta: float) -> void:
 		headFloat = 0
 	
 	
-	if Input.is_action_just_pressed("f"):
+	if Input.is_action_just_pressed("f") and flash_enable:
 		flashOn()
 	
 	if not is_on_floor():
-		velocity += get_gravity() * delta
+		velocity += get_gravity() * delta * 5
 
+	if Input.is_action_just_pressed("space") and is_on_floor():
+		velocity.y = jump_velocity
+	
 	move_and_slide()
 
 func flashOn():
@@ -47,12 +57,24 @@ func flashOn():
 	flashlight.visible = flashlightOn
 
 func add_object_to_inventory(obj):
-	var item_name = obj.objName
-	
-	for i in inventory:
-		if item_name == i[0]:
-			i[1] += 1
-			ui.update_inventory()
-			return
-	inventory.append([item_name,1])
+	if obj is UniquePickableItems:
+		obj.uniqueInteract()
+		return
+	InventoryManager.add_item(obj.objLink,1)
 	ui.update_inventory()
+
+func _input(event: InputEvent) -> void:
+	var target_height: float
+	
+	if event.is_action_pressed("ctrl") and not event.is_echo():
+		target_height = 2
+	elif event.is_action_released("ctrl"):
+		target_height = collisionHeigh
+	else:
+		return
+
+	if tween:
+		tween.kill()
+
+	tween = create_tween()
+	tween.tween_property(collision.shape, "height", target_height, 0.1)

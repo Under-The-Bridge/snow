@@ -5,7 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://bo6esg0e2r03r" path="res://Textures/snow.png" id="7_r4o0u"]
 [ext_resource type="PackedScene" uid="uid://chobpkgwu5p07" path="res://Pref/lep.tscn" id="8_6uc4e"]
 [ext_resource type="PackedScene" uid="uid://cwg8hwr2aaxj7" path="res://Pref/road_zabor.tscn" id="9_81yva"]
+[ext_resource type="FontFile" uid="uid://cn2tavd1oqan6" path="res://Fonts/Underdog/Underdog-Regular.ttf" id="10_h8gyn"]
 [ext_resource type="PackedScene" uid="uid://c8fc1ls6e33af" path="res://Pref/road.tscn" id="10_tf3ul"]
+[ext_resource type="Script" uid="uid://b2hdxhpgveuhb" path="res://Scripts/MessageBox.gd" id="11_fw2wd"]
 [ext_resource type="PackedScene" uid="uid://nsfmmaoxgicl" path="res://Pref/car.tscn" id="11_hhnfl"]
 [ext_resource type="Shader" uid="uid://dic5a61654m2t" path="res://Shaders/vignette.gdshader" id="12_q0b5d"]
 [ext_resource type="PackedScene" uid="uid://bqw4sry0eolnm" path="res://Pref/lep_no_lamp.tscn" id="13_gvpnd"]
@@ -244,9 +246,10 @@ albedo_color = Color(0.32544088, 0.3254409, 0.32544088, 1)
 material = SubResource("StandardMaterial3D_i3aeo")
 size = Vector3(1, 0.01, 1)
 
-[node name="Game" type="Node3D" unique_id=1293829860 node_paths=PackedStringArray("animationPlayer")]
+[node name="Game" type="Node3D" unique_id=1293829860 node_paths=PackedStringArray("animationPlayer", "message_box")]
 script = ExtResource("1_ldjru")
 animationPlayer = NodePath("AnimationPlayer")
+message_box = NodePath("CanvasLayer/Control/message_box")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=71557342]
 transform = Transform3D(1, 0, 0, 0, -0.66403127, 0.7477049, 0, -0.7477049, -0.66403127, -1.3866186, 7.6558337, 20.170547)
@@ -261,76 +264,76 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 131.90912, 0, 0)
 
 [node name="terrain" parent="Terrain" unique_id=1273504766 instance=ExtResource("6_edb28")]
 
-[node name="Plane" parent="Terrain/terrain" index="0" unique_id=377498568]
+[node name="Plane" parent="Terrain/terrain" index="0" unique_id=1686925669]
 material_override = SubResource("StandardMaterial3D_bjupt")
 
 [node name="terrain2" parent="Terrain" unique_id=2004988065 instance=ExtResource("6_edb28")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -543.9567)
 
-[node name="Plane" parent="Terrain/terrain2" index="0" unique_id=377498568]
+[node name="Plane" parent="Terrain/terrain2" index="0" unique_id=1686925669]
 transform = Transform3D(-100, 8.742278e-06, 0, -8.742278e-06, -100, 8.742278e-06, 7.6427417e-13, 8.742278e-06, 100, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_bjupt")
 
 [node name="terrain3" parent="Terrain" unique_id=300137930 instance=ExtResource("6_edb28")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -267.49872, 0, -543.9567)
 
-[node name="Plane" parent="Terrain/terrain3" index="0" unique_id=377498568]
+[node name="Plane" parent="Terrain/terrain3" index="0" unique_id=1686925669]
 transform = Transform3D(-100, 8.742278e-06, 0, -8.742278e-06, -100, 8.742278e-06, 7.6427417e-13, 8.742278e-06, 100, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_bjupt")
 
 [node name="terrain4" parent="Terrain" unique_id=1436261190 instance=ExtResource("6_edb28")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -541.13086, 0, -543.9567)
 
-[node name="Plane" parent="Terrain/terrain4" index="0" unique_id=377498568]
+[node name="Plane" parent="Terrain/terrain4" index="0" unique_id=1686925669]
 transform = Transform3D(-100, 8.742278e-06, 0, -8.742278e-06, -100, 8.742278e-06, 7.6427417e-13, 8.742278e-06, 100, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_bjupt")
 
 [node name="terrain5" parent="Terrain" unique_id=516949776 instance=ExtResource("6_edb28")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -808.6296, 0, -543.9567)
 
-[node name="Plane" parent="Terrain/terrain5" index="0" unique_id=377498568]
+[node name="Plane" parent="Terrain/terrain5" index="0" unique_id=1686925669]
 transform = Transform3D(-100, 8.742278e-06, 0, -8.742278e-06, -100, 8.742278e-06, 7.6427417e-13, 8.742278e-06, 100, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_bjupt")
 
 [node name="terrain6" parent="Terrain" unique_id=286387882 instance=ExtResource("6_edb28")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1060.9575, 0, -543.9567)
 
-[node name="Plane" parent="Terrain/terrain6" index="0" unique_id=377498568]
+[node name="Plane" parent="Terrain/terrain6" index="0" unique_id=1686925669]
 transform = Transform3D(-100, 8.742278e-06, 0, -8.742278e-06, -100, 8.742278e-06, 7.6427417e-13, 8.742278e-06, 100, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_bjupt")
 
 [node name="terrain7" parent="Terrain" unique_id=860681787 instance=ExtResource("6_edb28")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1328.4563, 0, -543.9567)
 
-[node name="Plane" parent="Terrain/terrain7" index="0" unique_id=377498568]
+[node name="Plane" parent="Terrain/terrain7" index="0" unique_id=1686925669]
 transform = Transform3D(-100, 8.742278e-06, 0, -8.742278e-06, -100, 8.742278e-06, 7.6427417e-13, 8.742278e-06, 100, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_bjupt")
 
 [node name="terrain8" parent="Terrain" unique_id=891689987 instance=ExtResource("6_edb28")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1602.0884, 0, -543.9567)
 
-[node name="Plane" parent="Terrain/terrain8" index="0" unique_id=377498568]
+[node name="Plane" parent="Terrain/terrain8" index="0" unique_id=1686925669]
 transform = Transform3D(-100, 8.742278e-06, 0, -8.742278e-06, -100, 8.742278e-06, 7.6427417e-13, 8.742278e-06, 100, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_bjupt")
 
 [node name="terrain9" parent="Terrain" unique_id=890573105 instance=ExtResource("6_edb28")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1869.5872, 0, -543.9567)
 
-[node name="Plane" parent="Terrain/terrain9" index="0" unique_id=377498568]
+[node name="Plane" parent="Terrain/terrain9" index="0" unique_id=1686925669]
 transform = Transform3D(-100, 8.742278e-06, 0, -8.742278e-06, -100, 8.742278e-06, 7.6427417e-13, 8.742278e-06, 100, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_bjupt")
 
 [node name="terrain10" parent="Terrain" unique_id=646174809 instance=ExtResource("6_edb28")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2101.7017, 0, -543.9567)
 
-[node name="Plane" parent="Terrain/terrain10" index="0" unique_id=377498568]
+[node name="Plane" parent="Terrain/terrain10" index="0" unique_id=1686925669]
 transform = Transform3D(-100, 8.742278e-06, 0, -8.742278e-06, -100, 8.742278e-06, 7.6427417e-13, 8.742278e-06, 100, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_bjupt")
 
 [node name="terrain11" parent="Terrain" unique_id=1672059055 instance=ExtResource("6_edb28")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2369.2004, 0, -543.9567)
 
-[node name="Plane" parent="Terrain/terrain11" index="0" unique_id=377498568]
+[node name="Plane" parent="Terrain/terrain11" index="0" unique_id=1686925669]
 transform = Transform3D(-100, 8.742278e-06, 0, -8.742278e-06, -100, 8.742278e-06, 7.6427417e-13, 8.742278e-06, 100, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_bjupt")
 
@@ -706,6 +709,28 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -194
 
 [node name="lep11" parent="." unique_id=1539963725 instance=ExtResource("13_gvpnd")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1947.6819, -7.186615, -578.94055)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=209162305]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=2044947685]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="message_box" type="Label" parent="CanvasLayer/Control" unique_id=572790624]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -256.0
+offset_top = -72.0
+offset_bottom = -8.0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("10_h8gyn")
+theme_override_font_sizes/font_size = 26
+text = "wergthyj"
+script = ExtResource("11_fw2wd")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 

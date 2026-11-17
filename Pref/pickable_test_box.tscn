@@ -9,6 +9,7 @@ size = Vector3(2, 2, 2)
 [node name="pickable_test_box" type="Node3D" unique_id=2128527594]
 script = ExtResource("1_xhmfi")
 objName = "Тестовая коробка"
+objLink = "pickable_test_box"
 isInteractable = true
 
 [node name="box" parent="." unique_id=34877130 instance=ExtResource("1_6m5q3")]

@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://c8g0odbbquxk8"]
+
+[ext_resource type="Script" uid="uid://dx2ccpc6y48my" path="res://Scripts/Flashlight.gd" id="1_0sidl"]
+[ext_resource type="PackedScene" uid="uid://bec6v1vfcte3k" path="res://Mesh/flashlight.glb" id="3_0alc8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2ha21"]
+size = Vector3(0.51660156, 0.48828125, 1.2506104)
+
+[node name="flashlight" type="Node3D" unique_id=2023873909]
+script = ExtResource("1_0sidl")
+objName = "Фонарик"
+isInteractable = true
+
+[node name="Area3D" type="Area3D" parent="." unique_id=859318722]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1275912335]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.12432861)
+shape = SubResource("BoxShape3D_2ha21")
+
+[node name="flashlight" parent="." unique_id=418976010 instance=ExtResource("3_0alc8")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)

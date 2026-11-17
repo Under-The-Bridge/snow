@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cdl10yuosdjxs"]
+
+[ext_resource type="Script" uid="uid://b1g7iigjjwicw" path="res://Scripts/MenuCarAnimScript.gd" id="1_oj2t0"]
+[ext_resource type="PackedScene" uid="uid://bthv8th7lprhb" path="res://Mesh/vaz.glb" id="2_jdl3r"]
+
+[node name="MenuCarAnim" type="Node3D" unique_id=468429094]
+script = ExtResource("1_oj2t0")
+
+[node name="car" type="Node3D" parent="." unique_id=1070615975]
+
+[node name="vaz" parent="car" unique_id=370713914 instance=ExtResource("2_jdl3r")]
+transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, 0, 3.25, 0)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="car" unique_id=768758186]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, -2.1267042, 2.6242542, 7.797783)
+spot_range = 150.0
+spot_angle = 60.0
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="car" unique_id=191466897]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 2.227975, 2.6242542, 7.797783)
+spot_range = 150.0
+spot_angle = 60.0
