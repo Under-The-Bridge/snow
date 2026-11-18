@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bwdejqi8mrhuj"]
+
+[ext_resource type="Script" uid="uid://bkjmsgvosxnu7" path="res://Scripts/BodyScript.gd" id="1_24ciq"]
+[ext_resource type="PackedScene" uid="uid://dfkup0x6sbyqo" path="res://Mesh/box.glb" id="1_oug14"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hxger"]
+size = Vector3(2, 4, 2)
+
+[node name="Body" type="Node3D" unique_id=1448050910]
+script = ExtResource("1_24ciq")
+objName = "Убить"
+isInteractable = true
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1974639042]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=424585330]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_hxger")
+
+[node name="box" parent="." unique_id=34877130 instance=ExtResource("1_oug14")]
+transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=242309115]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_hxger")

@@ -57,11 +57,19 @@ func _process(_delta: float) -> void:
 
 	interactLabel.show()
 
-	if Input.is_action_just_pressed("e"):
-		player.add_object_to_inventory(object)
-		object.pickup()
-		interactLabel.hide()
-		objNameLabel.text = ""
+	if Input.is_action_just_pressed("e") or Input.is_action_just_released('lmb'):
+		if object is UniquePickableItems:
+			if object.hide_on_interact:
+				object.uniqueInteract()
+				object.pickup()
+			else:
+				object.uniqueInteract()
+				return
+		else:
+			player.add_object_to_inventory(object)
+			object.pickup()
+			interactLabel.hide()
+			objNameLabel.text = ""
 
 func zoom(open: bool) -> void:
 	if tween:

@@ -2,13 +2,15 @@ extends CharacterBody3D
 
 @export var speed: float = 4.5
 @export var speed_run: float = 20
-@export var camera: Node3D
+@export var camera: Camera3D
 @export var flashlight: SpotLight3D
 @export var jump_velocity: float = 5.0
 @export var collision: CollisionShape3D
 @export var ui: CanvasLayer
 @export var flash_enable = false
+@export var chainsaw_enable = false
 @export var flashlightModel: Node3D
+@export var chainsawModel: Node3D
 
 var headFloat = 0.0
 var flashlightOn = false
@@ -20,7 +22,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	
-	camera.position = Vector3(0,2.25 + (sin(headFloat) / 5),0)
+	camera.v_offset = sin(headFloat) / 25
 	
 	var input = Input.get_vector("a", "d", "w", "s")
 	var direction = camera.global_basis * Vector3(input.x, 0, input.y)
@@ -52,6 +54,10 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 
+func enabe_chainsaw():
+	chainsaw_enable = true
+	chainsawModel.show()
+
 func flashOn():
 	flashlightOn = !flashlightOn
 	flashlight.visible = flashlightOn
@@ -62,6 +68,10 @@ func add_object_to_inventory(obj):
 		return
 	InventoryManager.add_item(obj.objLink,1)
 	ui.update_inventory()
+
+func enable_flashlight():
+	flash_enable = true
+	#flashlightModel.show()
 
 func _input(event: InputEvent) -> void:
 	var target_height: float

@@ -1,4 +1,6 @@
-extends Node
+extends Control
+
+@export var settings_menu: Control
 
 func _on_play_pressed() -> void:
 	SceneManager.loadScene('loading')

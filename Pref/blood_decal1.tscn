@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://b7hddehn4vw4a"]
+
+[ext_resource type="Texture2D" uid="uid://bma3aihorgphi" path="res://Textures/blood2.png" id="1_7pha4"]
+
+[node name="BloodDecal" type="Decal" unique_id=1772550445]
+size = Vector3(10, 10, 10)
+texture_albedo = ExtResource("1_7pha4")

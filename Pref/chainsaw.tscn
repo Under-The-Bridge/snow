@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://duwqhdbo22pn2"]
+
+[ext_resource type="Script" uid="uid://clvmxbh1514x1" path="res://Scripts/ChainsawScript.gd" id="1_45oo1"]
+[ext_resource type="PackedScene" uid="uid://nyofrns313nh" path="res://Mesh/chainsaw.glb" id="1_g8bt0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_45oo1"]
+size = Vector3(1.1542969, 1.2503662, 4)
+
+[node name="Chainsaw" type="Node3D" unique_id=852200855]
+script = ExtResource("1_45oo1")
+hide_on_interact = true
+objName = "Бензопила"
+isInteractable = true
+
+[node name="chainsaw" parent="." unique_id=581592730 instance=ExtResource("1_g8bt0")]
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1767396474]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1519132830]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.09625244, 0)
+shape = SubResource("BoxShape3D_45oo1")

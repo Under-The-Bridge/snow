@@ -1,5 +1,7 @@
 extends UniquePickableItems
 
+
+
 func pickup():
 	pass
 	

@@ -1,8 +1,7 @@
 extends UniquePickableItems
 
 func uniqueInteract():
-	player.flash_enable = true
-	player.flashlightModel.show()
+	player.enable_flashlight()
 	DialogueManager.show_multiple_text([
 			['включить фонарик на F','n'],
 			[3,'w'],

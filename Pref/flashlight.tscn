@@ -8,6 +8,7 @@ size = Vector3(0.51660156, 0.48828125, 1.2506104)
 
 [node name="flashlight" type="Node3D" unique_id=2023873909]
 script = ExtResource("1_0sidl")
+hide_on_interact = true
 objName = "Фонарик"
 isInteractable = true
 
