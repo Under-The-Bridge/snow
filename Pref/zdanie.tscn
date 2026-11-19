@@ -1,0 +1,200 @@
+[gd_scene format=3 uid="uid://bq56bd18t4e30"]
+
+[ext_resource type="PackedScene" uid="uid://bjsibfkclwrv" path="res://Mesh/zdanie.glb" id="1_6e3xb"]
+[ext_resource type="PackedScene" uid="uid://gs84g3jhcs6i" path="res://Pref/setka.tscn" id="2_mi45n"]
+
+[node name="zdanie" unique_id=1343668876 instance=ExtResource("1_6e3xb")]
+
+[node name="Setkas" type="Node3D" parent="." index="9" unique_id=190737213]
+
+[node name="Setka" parent="Setkas" index="0" unique_id=1284426818 instance=ExtResource("2_mi45n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 200, 75)
+
+[node name="Setka2" parent="Setkas" index="1" unique_id=656602963 instance=ExtResource("2_mi45n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 200, 65)
+
+[node name="Setka3" parent="Setkas" index="2" unique_id=1698002624 instance=ExtResource("2_mi45n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 200, 55)
+
+[node name="Setka4" parent="Setkas" index="3" unique_id=1406371708 instance=ExtResource("2_mi45n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 200, 45)
+
+[node name="Setka5" parent="Setkas" index="4" unique_id=1760942416 instance=ExtResource("2_mi45n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 200, 35)
+
+[node name="Setka6" parent="Setkas" index="5" unique_id=1302408279 instance=ExtResource("2_mi45n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 200, 25)
+
+[node name="Setka7" parent="Setkas" index="6" unique_id=2100969260 instance=ExtResource("2_mi45n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 200, 15)
+
+[node name="Setka8" parent="Setkas" index="7" unique_id=398834717 instance=ExtResource("2_mi45n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 200, 5)
+
+[node name="Setka9" parent="Setkas" index="8" unique_id=455354546 instance=ExtResource("2_mi45n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 200, -5)
+
+[node name="Setka10" parent="Setkas" index="9" unique_id=1163758262 instance=ExtResource("2_mi45n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 200, -15)
+
+[node name="Setka11" parent="Setkas" index="10" unique_id=652566493 instance=ExtResource("2_mi45n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 200, -25)
+
+[node name="Setka12" parent="Setkas" index="11" unique_id=1580191866 instance=ExtResource("2_mi45n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 200, -35)
+
+[node name="Setka13" parent="Setkas" index="12" unique_id=1882927492 instance=ExtResource("2_mi45n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 200, -45)
+
+[node name="Setka14" parent="Setkas" index="13" unique_id=1603400460 instance=ExtResource("2_mi45n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 200, -55)
+
+[node name="Setka15" parent="Setkas" index="14" unique_id=737331186 instance=ExtResource("2_mi45n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 200, -65)
+
+[node name="Setka16" parent="Setkas" index="15" unique_id=1803480630 instance=ExtResource("2_mi45n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 200, -75)
+
+[node name="Setka17" parent="Setkas" index="16" unique_id=903974627 instance=ExtResource("2_mi45n")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 75, 200, -80)
+
+[node name="Setka18" parent="Setkas" index="17" unique_id=594486371 instance=ExtResource("2_mi45n")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 65, 200, -80)
+
+[node name="Setka19" parent="Setkas" index="18" unique_id=1638896906 instance=ExtResource("2_mi45n")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 55, 200, -80)
+
+[node name="Setka20" parent="Setkas" index="19" unique_id=2125954811 instance=ExtResource("2_mi45n")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 45, 200, -80)
+
+[node name="Setka21" parent="Setkas" index="20" unique_id=1068948314 instance=ExtResource("2_mi45n")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 35, 200, -80)
+
+[node name="Setka22" parent="Setkas" index="21" unique_id=1701119855 instance=ExtResource("2_mi45n")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 25, 200, -80)
+
+[node name="Setka23" parent="Setkas" index="22" unique_id=687615724 instance=ExtResource("2_mi45n")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 15, 200, -80)
+
+[node name="Setka24" parent="Setkas" index="23" unique_id=589603496 instance=ExtResource("2_mi45n")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5, 200, -80)
+
+[node name="Setka25" parent="Setkas" index="24" unique_id=339660497 instance=ExtResource("2_mi45n")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5, 200, -80)
+
+[node name="Setka26" parent="Setkas" index="25" unique_id=992464188 instance=ExtResource("2_mi45n")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15, 200, -80)
+
+[node name="Setka27" parent="Setkas" index="26" unique_id=863690045 instance=ExtResource("2_mi45n")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -25, 200, -80)
+
+[node name="Setka28" parent="Setkas" index="27" unique_id=248330821 instance=ExtResource("2_mi45n")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -35, 200, -80)
+
+[node name="Setka29" parent="Setkas" index="28" unique_id=763103542 instance=ExtResource("2_mi45n")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -45, 200, -80)
+
+[node name="Setka30" parent="Setkas" index="29" unique_id=1153389153 instance=ExtResource("2_mi45n")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -55, 200, -80)
+
+[node name="Setka31" parent="Setkas" index="30" unique_id=1159364845 instance=ExtResource("2_mi45n")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -65, 200, -80)
+
+[node name="Setka32" parent="Setkas" index="31" unique_id=1067052398 instance=ExtResource("2_mi45n")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -75, 200, -80)
+
+[node name="Setka33" parent="Setkas" index="32" unique_id=1672933997 instance=ExtResource("2_mi45n")]
+transform = Transform3D(-0.99999994, 0, 8.940697e-08, 0, 1, 0, -8.940697e-08, 0, -0.99999994, -79.99999, 200, -75)
+
+[node name="Setka34" parent="Setkas" index="33" unique_id=37637370 instance=ExtResource("2_mi45n")]
+transform = Transform3D(-0.99999994, 0, 8.940697e-08, 0, 1, 0, -8.940697e-08, 0, -0.99999994, -80, 200, -65)
+
+[node name="Setka35" parent="Setkas" index="34" unique_id=104008457 instance=ExtResource("2_mi45n")]
+transform = Transform3D(-0.99999994, 0, 8.940697e-08, 0, 1, 0, -8.940697e-08, 0, -0.99999994, -80, 200, -55)
+
+[node name="Setka36" parent="Setkas" index="35" unique_id=1916106885 instance=ExtResource("2_mi45n")]
+transform = Transform3D(-0.99999994, 0, 8.940697e-08, 0, 1, 0, -8.940697e-08, 0, -0.99999994, -80, 200, -45)
+
+[node name="Setka37" parent="Setkas" index="36" unique_id=1165916081 instance=ExtResource("2_mi45n")]
+transform = Transform3D(-0.99999994, 0, 8.940697e-08, 0, 1, 0, -8.940697e-08, 0, -0.99999994, -80, 200, -35)
+
+[node name="Setka38" parent="Setkas" index="37" unique_id=1396817001 instance=ExtResource("2_mi45n")]
+transform = Transform3D(-0.99999994, 0, 8.940697e-08, 0, 1, 0, -8.940697e-08, 0, -0.99999994, -80, 200, -25)
+
+[node name="Setka39" parent="Setkas" index="38" unique_id=1563318209 instance=ExtResource("2_mi45n")]
+transform = Transform3D(-0.99999994, 0, 8.940697e-08, 0, 1, 0, -8.940697e-08, 0, -0.99999994, -80, 200, -15)
+
+[node name="Setka40" parent="Setkas" index="39" unique_id=566662637 instance=ExtResource("2_mi45n")]
+transform = Transform3D(-0.99999994, 0, 8.940697e-08, 0, 1, 0, -8.940697e-08, 0, -0.99999994, -80, 200, -5)
+
+[node name="Setka41" parent="Setkas" index="40" unique_id=1551367255 instance=ExtResource("2_mi45n")]
+transform = Transform3D(-0.99999994, 0, 8.940697e-08, 0, 1, 0, -8.940697e-08, 0, -0.99999994, -80, 200, 5)
+
+[node name="Setka42" parent="Setkas" index="41" unique_id=519253818 instance=ExtResource("2_mi45n")]
+transform = Transform3D(-0.99999994, 0, 8.940697e-08, 0, 1, 0, -8.940697e-08, 0, -0.99999994, -80, 200, 14.999992)
+
+[node name="Setka43" parent="Setkas" index="42" unique_id=1913440521 instance=ExtResource("2_mi45n")]
+transform = Transform3D(-0.99999994, 0, 8.940697e-08, 0, 1, 0, -8.940697e-08, 0, -0.99999994, -80, 200, 24.999992)
+
+[node name="Setka44" parent="Setkas" index="43" unique_id=427687448 instance=ExtResource("2_mi45n")]
+transform = Transform3D(-0.99999994, 0, 8.940697e-08, 0, 1, 0, -8.940697e-08, 0, -0.99999994, -80.00001, 200, 34.999992)
+
+[node name="Setka45" parent="Setkas" index="44" unique_id=1749713502 instance=ExtResource("2_mi45n")]
+transform = Transform3D(-0.99999994, 0, 8.940697e-08, 0, 1, 0, -8.940697e-08, 0, -0.99999994, -80.00001, 200, 44.999992)
+
+[node name="Setka46" parent="Setkas" index="45" unique_id=800615430 instance=ExtResource("2_mi45n")]
+transform = Transform3D(-0.99999994, 0, 8.940697e-08, 0, 1, 0, -8.940697e-08, 0, -0.99999994, -80.00001, 200, 54.999992)
+
+[node name="Setka47" parent="Setkas" index="46" unique_id=1645673034 instance=ExtResource("2_mi45n")]
+transform = Transform3D(-0.99999994, 0, 8.940697e-08, 0, 1, 0, -8.940697e-08, 0, -0.99999994, -80.00001, 200, 64.99999)
+
+[node name="Setka48" parent="Setkas" index="47" unique_id=1753777985 instance=ExtResource("2_mi45n")]
+transform = Transform3D(-0.99999994, 0, 8.940697e-08, 0, 1, 0, -8.940697e-08, 0, -0.99999994, -80.00001, 200, 74.99999)
+
+[node name="Setka49" parent="Setkas" index="48" unique_id=1140994154 instance=ExtResource("2_mi45n")]
+transform = Transform3D(2.9802322e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, 2.9802322e-08, -75.00001, 200, 80)
+
+[node name="Setka50" parent="Setkas" index="49" unique_id=1891907344 instance=ExtResource("2_mi45n")]
+transform = Transform3D(2.9802322e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, 2.9802322e-08, -65.00001, 200, 79.99999)
+
+[node name="Setka51" parent="Setkas" index="50" unique_id=457756867 instance=ExtResource("2_mi45n")]
+transform = Transform3D(2.9802322e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, 2.9802322e-08, -55.00001, 200, 79.99999)
+
+[node name="Setka52" parent="Setkas" index="51" unique_id=1751237794 instance=ExtResource("2_mi45n")]
+transform = Transform3D(2.9802322e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, 2.9802322e-08, -45.00001, 200, 80)
+
+[node name="Setka53" parent="Setkas" index="52" unique_id=222287086 instance=ExtResource("2_mi45n")]
+transform = Transform3D(2.9802322e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, 2.9802322e-08, -35.00001, 200, 80)
+
+[node name="Setka54" parent="Setkas" index="53" unique_id=1495625404 instance=ExtResource("2_mi45n")]
+transform = Transform3D(2.9802322e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, 2.9802322e-08, -25.000015, 200, 79.99999)
+
+[node name="Setka55" parent="Setkas" index="54" unique_id=1632231916 instance=ExtResource("2_mi45n")]
+transform = Transform3D(2.9802322e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, 2.9802322e-08, -15.000015, 200, 79.99999)
+
+[node name="Setka56" parent="Setkas" index="55" unique_id=2057910339 instance=ExtResource("2_mi45n")]
+transform = Transform3D(2.9802322e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, 2.9802322e-08, -5.0000153, 200, 80)
+
+[node name="Setka57" parent="Setkas" index="56" unique_id=884935678 instance=ExtResource("2_mi45n")]
+transform = Transform3D(2.9802322e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, 2.9802322e-08, 4.9999847, 200, 80)
+
+[node name="Setka58" parent="Setkas" index="57" unique_id=1590498975 instance=ExtResource("2_mi45n")]
+transform = Transform3D(2.9802322e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, 2.9802322e-08, 14.999985, 200, 80)
+
+[node name="Setka59" parent="Setkas" index="58" unique_id=747424810 instance=ExtResource("2_mi45n")]
+transform = Transform3D(2.9802322e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, 2.9802322e-08, 24.999992, 200, 80)
+
+[node name="Setka60" parent="Setkas" index="59" unique_id=1846853127 instance=ExtResource("2_mi45n")]
+transform = Transform3D(2.9802322e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, 2.9802322e-08, 34.999985, 200, 80)
+
+[node name="Setka61" parent="Setkas" index="60" unique_id=892002017 instance=ExtResource("2_mi45n")]
+transform = Transform3D(2.9802322e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, 2.9802322e-08, 44.999985, 200, 80.00001)
+
+[node name="Setka62" parent="Setkas" index="61" unique_id=1283789229 instance=ExtResource("2_mi45n")]
+transform = Transform3D(2.9802322e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, 2.9802322e-08, 54.99997, 200, 80)
+
+[node name="Setka63" parent="Setkas" index="62" unique_id=140796431 instance=ExtResource("2_mi45n")]
+transform = Transform3D(2.9802322e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, 2.9802322e-08, 64.999985, 200, 80)
+
+[node name="Setka64" parent="Setkas" index="63" unique_id=1057370056 instance=ExtResource("2_mi45n")]
+transform = Transform3D(2.9802322e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, 2.9802322e-08, 74.999985, 200, 80.000015)

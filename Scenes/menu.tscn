@@ -92,7 +92,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 131.90912, 0, 0)
 
 [node name="terrain" parent="Terrain" unique_id=1273504766 instance=ExtResource("4_rfqti")]
 
-[node name="Plane" parent="Terrain/terrain" index="0" unique_id=1686925669]
+[node name="Plane" parent="Terrain/terrain" index="0" unique_id=482809985]
 material_override = SubResource("StandardMaterial3D_bjupt")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain" unique_id=1843448464]
@@ -223,13 +223,12 @@ theme_override_constants/margin_top = 100
 theme_override_constants/margin_right = 100
 theme_override_constants/margin_bottom = 100
 
-[node name="Buttons" type="VBoxContainer" parent="CanvasLayer/UI/MarginContainer" unique_id=192627511 node_paths=PackedStringArray("settings_menu")]
+[node name="Buttons" type="VBoxContainer" parent="CanvasLayer/UI/MarginContainer" unique_id=192627511]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_constants/separation = 32
 alignment = 1
 script = ExtResource("6_wbdvm")
-settings_menu = NodePath("../../Settings")
 
 [node name="Play" type="Button" parent="CanvasLayer/UI/MarginContainer/Buttons" unique_id=1381785440]
 layout_mode = 2
@@ -291,22 +290,19 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_wbdvm")
 text = "> ВЫХОД"
 alignment = 0
 
-[node name="Settings" type="MarginContainer" parent="CanvasLayer/UI" unique_id=691715347]
-layout_mode = 0
-offset_left = 100.0
-offset_top = 100.0
-offset_right = 1052.0
-offset_bottom = 548.0
+[node name="Settings" type="MarginContainer" parent="CanvasLayer/UI/MarginContainer" unique_id=691715347]
+visible = false
+layout_mode = 2
 mouse_filter = 2
 theme_override_constants/margin_left = 225
 theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 225
 theme_override_constants/margin_bottom = 50
 
-[node name="Panel" type="Panel" parent="CanvasLayer/UI/Settings" unique_id=1990524125]
+[node name="Panel" type="Panel" parent="CanvasLayer/UI/MarginContainer/Settings" unique_id=1990524125]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/UI/Settings/Panel" unique_id=1535534099]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/UI/MarginContainer/Settings/Panel" unique_id=1535534099]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -319,20 +315,17 @@ theme_override_constants/margin_top = 25
 theme_override_constants/margin_right = 25
 theme_override_constants/margin_bottom = 25
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/Settings/Panel/MarginContainer" unique_id=262100952]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/MarginContainer/Settings/Panel/MarginContainer" unique_id=262100952]
 layout_mode = 2
 
-[node name="MasterAudio" type="VBoxContainer" parent="CanvasLayer/UI/Settings/Panel/MarginContainer/VBoxContainer" unique_id=10314686]
+[node name="MasterAudio" type="VBoxContainer" parent="CanvasLayer/UI/MarginContainer/Settings/Panel/MarginContainer/VBoxContainer" unique_id=10314686]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/UI/Settings/Panel/MarginContainer/VBoxContainer/MasterAudio" unique_id=2087733034]
+[node name="Label" type="Label" parent="CanvasLayer/UI/MarginContainer/Settings/Panel/MarginContainer/VBoxContainer/MasterAudio" unique_id=2087733034]
 layout_mode = 2
 text = "Общая громкость"
 
-[node name="HSlider" type="HSlider" parent="CanvasLayer/UI/Settings/Panel/MarginContainer/VBoxContainer/MasterAudio" unique_id=1438759967]
-layout_mode = 2
-
-[node name="Button" type="Button" parent="CanvasLayer/UI/Settings" unique_id=252260148]
+[node name="HSlider" type="HSlider" parent="CanvasLayer/UI/MarginContainer/Settings/Panel/MarginContainer/VBoxContainer/MasterAudio" unique_id=1438759967]
 layout_mode = 2
 
 [node name="AudioStreamPlayer" parent="." unique_id=1656613652 instance=ExtResource("8_q3rjx")]
@@ -344,6 +337,6 @@ script = ExtResource("9_6swd7")
 [connection signal="pressed" from="CanvasLayer/UI/MarginContainer/Buttons/Play" to="CanvasLayer/UI/MarginContainer/Buttons" method="_on_play_pressed"]
 [connection signal="pressed" from="CanvasLayer/UI/MarginContainer/Buttons/Settings" to="CanvasLayer/UI/MarginContainer/Buttons" method="_on_settings_pressed"]
 [connection signal="pressed" from="CanvasLayer/UI/MarginContainer/Buttons/Quit" to="CanvasLayer/UI/MarginContainer/Buttons" method="_on_quit_pressed"]
-[connection signal="value_changed" from="CanvasLayer/UI/Settings/Panel/MarginContainer/VBoxContainer/MasterAudio/HSlider" to="CanvasLayer/UI/MarginContainer/Buttons" method="_on_h_slider_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/UI/MarginContainer/Settings/Panel/MarginContainer/VBoxContainer/MasterAudio/HSlider" to="CanvasLayer/UI/MarginContainer/Buttons" method="_on_h_slider_value_changed"]
 
 [editable path="Terrain/terrain"]
