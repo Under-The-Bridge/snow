@@ -11,6 +11,7 @@ extends CharacterBody3D
 @export var chainsaw_enable = false
 @export var flashlightModel: Node3D
 @export var chainsawModel: Node3D
+@export var phone: Node3D
 
 var headFloat = 0.0
 var flashlightOn = false
@@ -74,6 +75,10 @@ func enable_flashlight():
 	#flashlightModel.show()
 
 func _input(event: InputEvent) -> void:
+	
+	if event.is_action_pressed("r"):
+		phone.take_screen()
+	
 	var target_height: float
 	
 	if event.is_action_pressed("ctrl") and not event.is_echo():

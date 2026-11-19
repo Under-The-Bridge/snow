@@ -292,21 +292,31 @@ text = "> ВЫХОД"
 alignment = 0
 
 [node name="Settings" type="MarginContainer" parent="CanvasLayer/UI" unique_id=691715347]
-layout_mode = 0
-offset_left = 100.0
-offset_top = 100.0
-offset_right = 1052.0
-offset_bottom = 548.0
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
-theme_override_constants/margin_left = 225
+
+[node name="CloseSettings" type="Button" parent="CanvasLayer/UI/Settings" unique_id=252260148]
+layout_mode = 2
+flat = true
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/UI/Settings" unique_id=907947864]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 100
 theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 225
+theme_override_constants/margin_right = 100
 theme_override_constants/margin_bottom = 50
 
-[node name="Panel" type="Panel" parent="CanvasLayer/UI/Settings" unique_id=1990524125]
+[node name="Panel" type="Panel" parent="CanvasLayer/UI/Settings/MarginContainer" unique_id=1990524125]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/UI/Settings/Panel" unique_id=1535534099]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/UI/Settings/MarginContainer/Panel" unique_id=1535534099]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -319,20 +329,17 @@ theme_override_constants/margin_top = 25
 theme_override_constants/margin_right = 25
 theme_override_constants/margin_bottom = 25
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/Settings/Panel/MarginContainer" unique_id=262100952]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/Settings/MarginContainer/Panel/MarginContainer" unique_id=262100952]
 layout_mode = 2
 
-[node name="MasterAudio" type="VBoxContainer" parent="CanvasLayer/UI/Settings/Panel/MarginContainer/VBoxContainer" unique_id=10314686]
+[node name="MasterAudio" type="VBoxContainer" parent="CanvasLayer/UI/Settings/MarginContainer/Panel/MarginContainer/VBoxContainer" unique_id=10314686]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/UI/Settings/Panel/MarginContainer/VBoxContainer/MasterAudio" unique_id=2087733034]
+[node name="Label" type="Label" parent="CanvasLayer/UI/Settings/MarginContainer/Panel/MarginContainer/VBoxContainer/MasterAudio" unique_id=2087733034]
 layout_mode = 2
 text = "Общая громкость"
 
-[node name="HSlider" type="HSlider" parent="CanvasLayer/UI/Settings/Panel/MarginContainer/VBoxContainer/MasterAudio" unique_id=1438759967]
-layout_mode = 2
-
-[node name="Button" type="Button" parent="CanvasLayer/UI/Settings" unique_id=252260148]
+[node name="HSlider" type="HSlider" parent="CanvasLayer/UI/Settings/MarginContainer/Panel/MarginContainer/VBoxContainer/MasterAudio" unique_id=1438759967]
 layout_mode = 2
 
 [node name="AudioStreamPlayer" parent="." unique_id=1656613652 instance=ExtResource("8_q3rjx")]
@@ -344,6 +351,7 @@ script = ExtResource("9_6swd7")
 [connection signal="pressed" from="CanvasLayer/UI/MarginContainer/Buttons/Play" to="CanvasLayer/UI/MarginContainer/Buttons" method="_on_play_pressed"]
 [connection signal="pressed" from="CanvasLayer/UI/MarginContainer/Buttons/Settings" to="CanvasLayer/UI/MarginContainer/Buttons" method="_on_settings_pressed"]
 [connection signal="pressed" from="CanvasLayer/UI/MarginContainer/Buttons/Quit" to="CanvasLayer/UI/MarginContainer/Buttons" method="_on_quit_pressed"]
-[connection signal="value_changed" from="CanvasLayer/UI/Settings/Panel/MarginContainer/VBoxContainer/MasterAudio/HSlider" to="CanvasLayer/UI/MarginContainer/Buttons" method="_on_h_slider_value_changed"]
+[connection signal="pressed" from="CanvasLayer/UI/Settings/CloseSettings" to="CanvasLayer/UI/MarginContainer/Buttons" method="_on_close_settings_pressed"]
+[connection signal="value_changed" from="CanvasLayer/UI/Settings/MarginContainer/Panel/MarginContainer/VBoxContainer/MasterAudio/HSlider" to="CanvasLayer/UI/MarginContainer/Buttons" method="_on_h_slider_value_changed"]
 
 [editable path="Terrain/terrain"]
