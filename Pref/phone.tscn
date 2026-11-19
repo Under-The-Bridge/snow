@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bhbxpim0b0a5b"]
+
+[ext_resource type="Script" uid="uid://b00gse2ndh1js" path="res://Scripts/phone.gd" id="1_uctld"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_2ha21"]
+
+[node name="phone" type="Node3D" unique_id=973573654 node_paths=PackedStringArray("screen_camera")]
+script = ExtResource("1_uctld")
+screen_camera = NodePath("SubViewport/Camera3D")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=803172632]
+size = Vector2i(256, 256)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport" unique_id=299735662]
+current = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1240074249]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("PlaneMesh_2ha21")

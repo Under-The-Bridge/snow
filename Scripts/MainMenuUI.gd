@@ -7,7 +7,7 @@ func _on_play_pressed() -> void:
 
 
 func _on_settings_pressed() -> void:
-	pass # Replace with function body.
+	open_settings()
 
 
 func _on_quit_pressed() -> void:
@@ -16,3 +16,10 @@ func _on_quit_pressed() -> void:
 
 func _on_h_slider_value_changed(value: float) -> void:
 	pass
+
+
+func _on_close_settings_pressed() -> void:
+	open_settings()
+	
+func open_settings():
+	settings_menu.visible = !settings_menu.visible

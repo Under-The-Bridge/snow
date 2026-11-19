@@ -11,6 +11,9 @@ extends CharacterBody3D
 @export var chainsaw_enable = false
 @export var flashlightModel: Node3D
 @export var chainsawModel: Node3D
+@export var phone: Node3D
+@export var phone_start_pos: Vector3
+@export var is_phone_showed = false
 
 var headFloat = 0.0
 var flashlightOn = false
@@ -18,6 +21,7 @@ var tween = create_tween()
 var collisionHeigh = 0
 
 func _ready() -> void:
+	phone_start_pos = phone.position
 	collisionHeigh = collision.shape.height
 
 func _physics_process(delta: float) -> void:
@@ -73,7 +77,23 @@ func enable_flashlight():
 	flash_enable = true
 	#flashlightModel.show()
 
+func show_phone():
+	tween = create_tween()
+	if is_phone_showed:
+		tween.tween_property(phone,'position',phone_start_pos - Vector3(0,2.5,0),0.5)
+		is_phone_showed = false
+	else:
+		tween.tween_property(phone,'position',phone_start_pos + Vector3(0,2.5,0),0.5)
+		is_phone_showed = true
+
 func _input(event: InputEvent) -> void:
+	
+	if event.is_action_pressed("r") and is_phone_showed:
+		phone.take_screen()
+	
+	if event.is_action_pressed("t"):
+		show_phone()
+	
 	var target_height: float
 	
 	if event.is_action_pressed("ctrl") and not event.is_echo():
