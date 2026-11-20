@@ -92,7 +92,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 131.90912, 0, 0)
 
 [node name="terrain" parent="Terrain" unique_id=1273504766 instance=ExtResource("4_rfqti")]
 
-[node name="Plane" parent="Terrain/terrain" index="0" unique_id=1686925669]
+[node name="Plane" parent="Terrain/terrain" index="0" unique_id=482809985]
 material_override = SubResource("StandardMaterial3D_bjupt")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain" unique_id=1843448464]
@@ -223,13 +223,12 @@ theme_override_constants/margin_top = 100
 theme_override_constants/margin_right = 100
 theme_override_constants/margin_bottom = 100
 
-[node name="Buttons" type="VBoxContainer" parent="CanvasLayer/UI/MarginContainer" unique_id=192627511 node_paths=PackedStringArray("settings_menu")]
+[node name="Buttons" type="VBoxContainer" parent="CanvasLayer/UI/MarginContainer" unique_id=192627511]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_constants/separation = 32
 alignment = 1
 script = ExtResource("6_wbdvm")
-settings_menu = NodePath("../../Settings")
 
 [node name="Play" type="Button" parent="CanvasLayer/UI/MarginContainer/Buttons" unique_id=1381785440]
 layout_mode = 2

@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://gs84g3jhcs6i"]
+
+[ext_resource type="PackedScene" uid="uid://d2bjb4b3dcyaq" path="res://Mesh/setka.glb" id="1_82fq2"]
+
+[node name="Setka" type="Node3D" unique_id=1284426818]
+
+[node name="setka" parent="." unique_id=2095183118 instance=ExtResource("1_82fq2")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)

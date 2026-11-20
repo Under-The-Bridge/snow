@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://de7hwgukjlp6v"]
 
-[ext_resource type="Script" uid="uid://cqvjeqqc2lxht" path="res://Scripts/PlayerMovement.gd" id="1_0gkwk"]
+[ext_resource type="Script" uid="uid://cqvjeqqc2lxht" path="res://Scripts/Player.gd" id="1_0gkwk"]
 [ext_resource type="PackedScene" uid="uid://dfkup0x6sbyqo" path="res://Mesh/box.glb" id="2_qnglk"]
 [ext_resource type="Script" uid="uid://p531yvj0b8xb" path="res://Scripts/CameraScript.gd" id="3_vqdnj"]
 [ext_resource type="PackedScene" uid="uid://nyofrns313nh" path="res://Mesh/chainsaw.glb" id="4_8k4q5"]
@@ -156,13 +156,13 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_hjsuu")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_dsktk"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_yadxk"]
 viewport_path = NodePath("Camera/phone/SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yadxk"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_dsktk")
-uv1_scale = Vector3(1.5, 1, 1)
+albedo_texture = SubResource("ViewportTexture_yadxk")
+uv1_scale = Vector3(1, 1, 0.5)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_2ha21"]
 material = SubResource("StandardMaterial3D_yadxk")
@@ -210,7 +210,7 @@ visible = false
 
 [node name="Camera" type="Camera3D" parent="." unique_id=442427127 node_paths=PackedStringArray("objNameLabel", "interactLabel", "player")]
 transform = Transform3D(-0.043896977, 0, -0.9990361, 0, 1, 0, 0.9990361, 0, -0.043896977, 2.865942e-14, 2.689, 6.556511e-07)
-cull_mask = 1023
+cull_mask = 525311
 fov = 90.0
 script = ExtResource("3_vqdnj")
 objNameLabel = NodePath("../CanvasLayer/Control/HBoxContainer/ObjName")
@@ -250,7 +250,7 @@ transform = Transform3D(0.34966683, 0.0054213414, 0.014271781, 0, 0.32718894, -0
 visible = false
 
 [node name="phone" type="Node3D" parent="Camera" unique_id=973573654 node_paths=PackedStringArray("player_camera", "screen_camera", "decal1", "decal2", "sub_viewport")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.185, 0, -2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -2.5, -2)
 script = ExtResource("5_uuqlw")
 player_camera = NodePath("..")
 screen_camera = NodePath("SubViewport/Camera3D")
@@ -259,19 +259,21 @@ decal2 = NodePath("MeshInstance3D/Decal2")
 sub_viewport = NodePath("SubViewport")
 
 [node name="SubViewport" type="SubViewport" parent="Camera/phone" unique_id=803172632]
-size = Vector2i(256, 256)
+canvas_cull_mask = 4293919743
+size = Vector2i(512, 256)
 render_target_update_mode = 4
 
 [node name="Camera3D" type="Camera3D" parent="Camera/phone/SubViewport" unique_id=299735662]
+cull_mask = 2047
 current = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Camera/phone" unique_id=1240074249]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -0.6, 0, 1, -2.6226834e-08, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -0.5, 0, 1, -2.1855694e-08, 0, 0, 0)
 layers = 2047
 mesh = SubResource("PlaneMesh_2ha21")
 
 [node name="Decal1" type="Decal" parent="Camera/phone/MeshInstance3D" unique_id=1346998883]
-transform = Transform3D(1.0000062, -8.195639e-08, 8.21565e-15, 8.195639e-08, 1.0000062, -1.0125234e-13, 1.15463195e-14, 0, 1, 0, 0, 2)
+transform = Transform3D(1.0000157, -2.0861626e-07, 2.2537527e-14, 2.0861626e-07, 1.0000157, -3.2329694e-13, 3.2640557e-14, -7.1054274e-15, 1, 0, 0, 2.0000005)
 size = Vector3(2, 0.02, 2)
 texture_albedo = ExtResource("6_yadxk")
 

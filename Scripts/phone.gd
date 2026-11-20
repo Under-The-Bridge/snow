@@ -14,7 +14,7 @@ func _ready() -> void:
 	if player_camera == null:
 		player_camera = get_viewport().get_camera_3d()
 
-	screen_viewport.size = Vector2i(256, 256)
+	screen_viewport.size = Vector2i(1024, 512)
 	screen_viewport.render_target_update_mode = SubViewport.UPDATE_ALWAYS
 	screen_viewport.world_3d = get_world_3d()
 
