@@ -20,6 +20,8 @@ func _ready() -> void:
 
 	# Layer 20: the screen is visible to the player, but not to its own camera.
 	screen_mesh.layers = 1 << 19
+	if player_camera != null:
+		player_camera.set_cull_mask_value(20, true)
 	screen_mesh.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	screen_camera.cull_mask &= ~(1 << 19)
 	screen_camera.make_current()
