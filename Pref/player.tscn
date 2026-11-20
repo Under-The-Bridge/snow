@@ -190,10 +190,9 @@ corner_radius_bottom_left = 10
 transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 0, 0, 0)
 script = ExtResource("1_0gkwk")
 speed = 10.0
-speed_run = 17.5
+speed_run = 15.0
 camera = NodePath("Camera")
 flashlight = NodePath("Camera/SpotLight3D")
-jump_velocity = 20.0
 collision = NodePath("CollisionShape3D")
 ui = NodePath("CanvasLayer")
 flash_enable = true
@@ -377,3 +376,34 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("8_yadxk")
 theme_override_font_sizes/font_size = 24
 text = "weqew"
+
+[node name="Menu" type="Control" parent="CanvasLayer" unique_id=1232446564]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Menu" unique_id=1899626967]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/Menu/Panel" unique_id=1104309239]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2

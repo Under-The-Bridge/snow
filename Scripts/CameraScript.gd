@@ -21,11 +21,8 @@ func _input(event: InputEvent) -> void:
 		zoom(false)
 	if !canRotate:
 		return
-	if event.is_action_pressed("ui_cancel"):
-		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
-			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-		else:
-			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	if event.is_action_pressed("backspace"):
+		mouse_lock_unlock()
 	if event is InputEventMouseMotion:
 		rotation.y -= event.relative.x * sensitivity
 		rotation.x -= event.relative.y * sensitivity
@@ -33,6 +30,10 @@ func _input(event: InputEvent) -> void:
 	
 
 func _process(_delta: float) -> void:
+	
+	if !player.canPlay:
+		return
+	
 	interactLabel.hide()
 	objNameLabel.text = ""
 
@@ -83,3 +84,9 @@ func zoom(open: bool) -> void:
 	tween.set_trans(Tween.TRANS_CUBIC)
 	tween.set_ease(Tween.EASE_OUT)
 	tween.tween_property(self, "fov", target, 0.4)
+	
+func mouse_lock_unlock():
+	if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	else:
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED

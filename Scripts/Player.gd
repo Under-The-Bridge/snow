@@ -12,19 +12,25 @@ extends CharacterBody3D
 @export var flashlightModel: Node3D
 @export var chainsawModel: Node3D
 @export var phone: Node3D
-@export var phone_start_pos: Vector3
 @export var is_phone_showed = false
 
+var phone_start_pos: Vector3
+var camera_start_pos: Vector3
 var headFloat = 0.0
 var flashlightOn = false
-var tween = create_tween()
+var tween: Tween
 var collisionHeigh = 0
+var canPlay = true
 
 func _ready() -> void:
+	camera_start_pos = camera.position
 	phone_start_pos = phone.position
 	collisionHeigh = collision.shape.height
 
 func _physics_process(delta: float) -> void:
+	
+	if !canPlay:
+		return
 	
 	camera.v_offset = sin(headFloat) / 25
 	

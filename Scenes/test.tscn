@@ -1,7 +1,11 @@
 [gd_scene format=4 uid="uid://oo8kgutlmth0"]
 
+[ext_resource type="PackedScene" uid="uid://cyvhffp60lw5r" path="res://Mesh/hospital.glb" id="1_35xla"]
 [ext_resource type="PackedScene" uid="uid://de7hwgukjlp6v" path="res://Pref/player.tscn" id="1_lc1oi"]
 [ext_resource type="PackedScene" uid="uid://chobpkgwu5p07" path="res://Pref/lep.tscn" id="2_qc4db"]
+[ext_resource type="PackedScene" uid="uid://d0y33r0nspc3s" path="res://Pref/lock.tscn" id="3_qc4db"]
+[ext_resource type="Texture2D" uid="uid://dqiouvntp0qrd" path="res://Textures/Sprite-0002.png" id="4_ys1qc"]
+[ext_resource type="Texture2D" uid="uid://bnb8ijvx4k4kq" path="res://Textures/scrap.png" id="6_i3aeo"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_2ha21"]
 
@@ -11,9 +15,8 @@ size = Vector3(200, 0.1, 200)
 [sub_resource type="Environment" id="Environment_lc1oi"]
 background_mode = 1
 background_color = Color(0.03137255, 0.03137255, 0.039215688, 1)
-background_energy_multiplier = 3.0
 ambient_light_source = 2
-ambient_light_color = Color(0.13682574, 0.13682574, 0.13682568, 1)
+ambient_light_color = Color(0.31555015, 0.3155501, 0.3155501, 1)
 ambient_light_energy = 0.2
 ssr_enabled = true
 ssao_enabled = true
@@ -418,19 +421,59 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ppgnk")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yadxk"]
+emission_enabled = true
+emission = Color(1, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u2pdj"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_hi0uo"]
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAACAAMABAACAAEAAwACAAQABQABAAAAAwAFAAAABQAGAAEABAABAAYAAwAHAAUAAwAEAAcABwAGAAUABwAEAAYA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAD/////AAAAAAAA//8AAAAAAAAAAAAAAAD//wAAAAD//wAAAAAAAP///////wAA//8AAP//AAD/////AAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_mej45"]
+resource_name = "box_Cube_001"
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"attribute_data": PackedByteArray("/5////9f////X/+//5//v/+f/7//X/+//1//f/+f/3//n/9//1//f/9f/z//n/8//5//P/9f/z//XwAA/58AAP9f/3//H/9//x//P/9f/z//3/9//5//f/+f/z//3/8/"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcA"),
+"material": SubResource("StandardMaterial3D_u2pdj"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAD/////VNUAAAAA//9U1QAAAAAAAFTVAAD//wAAVNUAAP//AAD//wAAAAAAAP////8AAAAA////////AAD///////8AAFTV//8AAAAAVNX//wAA//9U1f///////1TV/////////7///wAA////vwAAAAD///+/AAD//////7///wAAAAD/vwAAAAAAAP+/AAAAAP///7///wAA////vwAA//8AAP///////wAA/////////////wAA////////VNVU1VTVVNVU1VTVVNVU1f+//7//v/+//7//v/+//7+qKqoqqiqqKqoqqiqqKqoq/////////////////////wAA/38AAP9/AAD/fwAA/3//f/+//3//v/9//7//f/+/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_hi0uo")
+
 [node name="test" type="Node3D" unique_id=1653460571]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=997239313]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=2094925356]
-transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
+transform = Transform3D(245.51013, 0, 0, 0, 100, 0, 0, 0, 245.51013, 0, 0, 0)
 mesh = SubResource("PlaneMesh_2ha21")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1977691358]
+transform = Transform3D(2.4551013, 0, 0, 0, 1, 0, 0, 0, 2.4551013, 0, 0, 0)
 shape = SubResource("BoxShape3D_o3qbn")
 
+[node name="hospital" parent="StaticBody3D" unique_id=955597005 instance=ExtResource("1_35xla")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -85.24527, 0.497209, 4.1608047)
+
 [node name="Player" parent="." unique_id=1728821855 instance=ExtResource("1_lc1oi")]
-transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 1.5366132, 3.4143028, 3.8145962)
+transform = Transform3D(-4.371138e-08, 0, 0.9999999, 0, 1, 0, -0.9999999, 0, -4.371138e-08, -83.73986, 3.4143028, 3.8145962)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2096486073]
 visible = false
@@ -518,3 +561,41 @@ spot_angle = 60.0
 transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 2.227975, 2.6242542, 7.797783)
 spot_range = 150.0
 spot_angle = 60.0
+
+[node name="box" type="Node3D" parent="." unique_id=34877130]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.137309, 1.0500011, 9.787756)
+
+[node name="Cube" type="MeshInstance3D" parent="box" unique_id=1151578116]
+layers = 1024
+material_override = SubResource("StandardMaterial3D_yadxk")
+mesh = SubResource("ArrayMesh_mej45")
+
+[node name="Lock" parent="." unique_id=124048675 instance=ExtResource("3_qc4db")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.446903, 1.0500002, -2.0984774)
+
+[node name="Decal" type="Decal" parent="." unique_id=446692399]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.660282, 2.9422545, -7.8325653)
+layers = 1024
+size = Vector3(4.4414063, 2, 2)
+texture_albedo = ExtResource("4_ys1qc")
+texture_emission = ExtResource("4_ys1qc")
+
+[node name="Decal2" type="Decal" parent="." unique_id=2086968810]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -123.23757, 8.966176, -14.675417)
+size = Vector3(10, 3, 10)
+texture_albedo = ExtResource("6_i3aeo")
+
+[node name="Decal3" type="Decal" parent="." unique_id=1497540959]
+transform = Transform3D(1.1924881e-08, -1, 4.371139e-08, 0, -4.371139e-08, -1, 1, 1.1924881e-08, -5.2125306e-16, -131.79352, 7.966177, -2.4033394)
+size = Vector3(10, 3, 10)
+texture_albedo = ExtResource("6_i3aeo")
+
+[node name="Decal4" type="Decal" parent="." unique_id=1132654659]
+transform = Transform3D(1.1924881e-08, -1, 4.371139e-08, 0, -4.371139e-08, -1, 1, 1.1924881e-08, -5.2125306e-16, -131.79352, 13.601516, 11.123445)
+size = Vector3(10, 3, 10)
+texture_albedo = ExtResource("6_i3aeo")
+
+[node name="Decal5" type="Decal" parent="." unique_id=51285908]
+transform = Transform3D(1.1924881e-08, -1, 4.371139e-08, 0, -4.371139e-08, -1, 1, 1.1924881e-08, -5.2125306e-16, -125.74055, 7.5920353, 27.92036)
+size = Vector3(10, 10, 10)
+texture_albedo = ExtResource("6_i3aeo")

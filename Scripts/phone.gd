@@ -7,14 +7,14 @@ extends Node3D
 @export var sub_viewport: SubViewport
 @onready var screen_viewport: SubViewport = $SubViewport
 @onready var screen_mesh: MeshInstance3D = $MeshInstance3D
-
+@export var viewport_size = Vector2(512,256)
 var tween: Tween
 
 func _ready() -> void:
 	if player_camera == null:
 		player_camera = get_viewport().get_camera_3d()
 
-	screen_viewport.size = Vector2i(1024, 512)
+	screen_viewport.size = viewport_size
 	screen_viewport.render_target_update_mode = SubViewport.UPDATE_ALWAYS
 	screen_viewport.world_3d = get_world_3d()
 

@@ -1,6 +1,6 @@
 extends Label
 
-var tween = create_tween()
+var tween: Tween
 
 func show_message(message: String):
 	if tween:
